@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  backup:
+    build:
+      context: ./volume-backup
+    tty: false
+    volumes:
+      - ./backup:/backup
+
+  restore:
+    build:
+      context: ./volume-restore
+    volumes:
+      - ./backup:/backup
